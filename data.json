@@ -261,7 +261,14 @@
             ],
             "current": 3
           },
-          "progress": [],
+          "progress": [
+            {
+              "book": "수특 수II",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            }
+          ],
           "notes": ""
         }
       ]
