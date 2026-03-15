@@ -149,7 +149,122 @@
     {
       "id": "class-1773564428242",
       "name": "고3",
-      "students": []
+      "students": [
+        {
+          "id": "--6",
+          "name": "구민채",
+          "curriculum": {
+            "steps": [
+              "수능 기초",
+              "수능 개념",
+              "수능 심화",
+              "수능 기출",
+              "수능 킬러"
+            ],
+            "current": 3
+          },
+          "progress": [
+            {
+              "book": "수특 확통",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            },
+            {
+              "book": "마플 확통",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            }
+          ],
+          "notes": ""
+        },
+        {
+          "id": "--7",
+          "name": "전보미",
+          "curriculum": {
+            "steps": [
+              "수능 기초",
+              "수능 개념",
+              "수능 심화",
+              "수능 기출",
+              "수능 킬러"
+            ],
+            "current": 2
+          },
+          "progress": [
+            {
+              "book": "수특 확통",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            }
+          ],
+          "notes": ""
+        },
+        {
+          "id": "--8",
+          "name": "전서율",
+          "curriculum": {
+            "steps": [
+              "수능 기초",
+              "수능 개념",
+              "수능 심화",
+              "수능 기출",
+              "수능 킬러"
+            ],
+            "current": 3
+          },
+          "progress": [
+            {
+              "book": "수특 수II",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            }
+          ],
+          "notes": "https://www.knuh.ac.kr/admission/brd/list.do?mnuBaseId=MNU0000197&topBaseId=MNU0000194&tplSer=21\n\n한국전통문화대학교 입학 희망"
+        },
+        {
+          "id": "--9",
+          "name": "손다일",
+          "curriculum": {
+            "steps": [
+              "수능 기초",
+              "수능 개념",
+              "수능 심화",
+              "수능 기출",
+              "수능 킬러"
+            ],
+            "current": 3
+          },
+          "progress": [
+            {
+              "book": "",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            }
+          ],
+          "notes": ""
+        },
+        {
+          "id": "--10",
+          "name": "김재윤",
+          "curriculum": {
+            "steps": [
+              "수능 기초",
+              "수능 개념",
+              "수능 심화",
+              "수능 기출",
+              "수능 킬러"
+            ],
+            "current": 3
+          },
+          "progress": [],
+          "notes": ""
+        }
+      ]
     }
   ]
 }

@@ -137,7 +137,7 @@ function handleSearch() {
     trackerContent.innerHTML = `
       <div class="empty-state">
         <h2>학생 이름을 입력해주세요</h2>
-        <p class="muted">동명이인이 있는 경우 전체 이름을 입력하세요.</p>
+        <p class="muted">이름을 입력하면 자동으로 학생 정보를 불러옵니다.</p>
       </div>
     `;
     return;
