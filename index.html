@@ -20,7 +20,7 @@
       <div class="brand__badge">LT</div>
       <div>
         <div class="brand__title">Learning Tracker</div>
-        <div class="brand__subtitle">학생용 학습 현황</div>
+        <div class="brand__subtitle">학습 현황 알리미</div>
       </div>
     </div>
   </header>
@@ -29,25 +29,24 @@
     <section class="search-card">
       <div>
         <h1>내 학습 현황 확인</h1>
-        <p class="muted">학생 이름을 입력하면 현재 교재 진도와 커리큘럼 단계가 바로 보여요.</p>
+        <p class="muted">학습 자료 및 프린트는 구글 드라이브에서 확인할 수 있습니다.</p>
       </div>
       <div class="search-input">
-        <label for="studentSearch">학생 이름</label>
-        <input id="studentSearch" name="studentSearch" type="text" placeholder="예: 서연" autocomplete="off" list="studentList" />
+        <label for="studentSearch">이름</label>
+        <input id="studentSearch" name="studentSearch" type="text" placeholder="예: 염승규" autocomplete="off" list="studentList" />
         <datalist id="studentList"></datalist>
-        <p class="helper" id="searchHelper">이름을 입력하면 자동으로 학생 정보를 불러옵니다.</p>
+        <p class="helper" id="searchHelper">이름을 입력하면 현재 교재 진도와 커리큘럼 단계가 보입니다.</p>
       </div>
     </section>
 
     <section class="tracker-content" id="trackerContent">
       <div class="empty-state">
-        <h2>학생 이름을 입력해주세요</h2>
-        <p class="muted">동명이인이 있는 경우 전체 이름을 입력하세요.</p>
+        <h2>이름을 입력해주세요</h2>
+        <p class="muted">이름을 입력하면 자동으로 학생 정보를 불러옵니다.</p>
       </div>
     </section>
   </main>
 
-  <script src="data.js"></script>
   <script src="store.js"></script>
   <script src="tracker.js"></script>
 </body>

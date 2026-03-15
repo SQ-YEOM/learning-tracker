@@ -1,0 +1,155 @@
+{
+  "updatedAt": "2026-03-15",
+  "classes": [
+    {
+      "id": "class-1773564423371",
+      "name": "고2",
+      "students": [
+        {
+          "id": "-",
+          "name": "강우현",
+          "curriculum": {
+            "steps": [
+              "내신 개념",
+              "내신 심화",
+              "내신 기출",
+              "실전 테스트",
+              "직전 보충"
+            ],
+            "current": 2
+          },
+          "progress": [
+            {
+              "book": "수특 수I",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            },
+            {
+              "book": "마플 대수",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            }
+          ],
+          "notes": ""
+        },
+        {
+          "id": "--2",
+          "name": "김준택",
+          "curriculum": {
+            "steps": [
+              "내신 기초",
+              "내신 개념",
+              "교과서 대비",
+              "실전 테스트",
+              "직전 보충"
+            ],
+            "current": 1
+          },
+          "progress": [
+            {
+              "book": "수특 수I",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            }
+          ],
+          "notes": "기초 계산 위주로 하는 학생"
+        },
+        {
+          "id": "--3",
+          "name": "이채현",
+          "curriculum": {
+            "steps": [
+              "내신 기초",
+              "내신 심화",
+              "내신 기출",
+              "실전 테스트",
+              "직전 보충"
+            ],
+            "current": 2
+          },
+          "progress": [
+            {
+              "book": "수특 수I",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            },
+            {
+              "book": "마플 대수",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            }
+          ],
+          "notes": "미대 준비"
+        },
+        {
+          "id": "--4",
+          "name": "최유이",
+          "curriculum": {
+            "steps": [
+              "내신 개념",
+              "내신 심화",
+              "내신 기출",
+              "실전 테스트",
+              "직전 보충"
+            ],
+            "current": 2
+          },
+          "progress": [
+            {
+              "book": "수특 수I",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            },
+            {
+              "book": "마플 대수",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            }
+          ],
+          "notes": ""
+        },
+        {
+          "id": "--5",
+          "name": "함태웅",
+          "curriculum": {
+            "steps": [
+              "내신 개념",
+              "내신 심화",
+              "내신 기출",
+              "실전 테스트",
+              "직전 보충"
+            ],
+            "current": 2
+          },
+          "progress": [
+            {
+              "book": "수특 수I",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            },
+            {
+              "book": "올림포스 고난도 대수",
+              "total": 0,
+              "done": 0,
+              "homework": 0
+            }
+          ],
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": "class-1773564428242",
+      "name": "고3",
+      "students": []
+    }
+  ]
+}

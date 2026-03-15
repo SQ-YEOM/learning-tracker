@@ -10,6 +10,7 @@ const curriculumNames = document.querySelector("#curriculumNames");
 const booksContainer = document.querySelector("#booksContainer");
 const addBookButton = document.querySelector("#addBookButton");
 const saveButton = document.querySelector("#saveButton");
+const exportButton = document.querySelector("#exportButton");
 const saveHelper = document.querySelector("#saveHelper");
 const addStudentButton = document.querySelector("#addStudentButton");
 const deleteStudentButton = document.querySelector("#deleteStudentButton");
@@ -18,7 +19,7 @@ const addClassButton = document.querySelector("#addClassButton");
 const classList = document.querySelector("#classList");
 const classHelper = document.querySelector("#classHelper");
 
-let data = window.DATA_STORE.loadData();
+let data = { classes: [] };
 let activeStudentId = null;
 
 function normalizeName(value) {
@@ -250,7 +251,19 @@ function addStudent() {
   studentNameInput.focus();
 }
 
-function addClass() {
+function downloadJson(filename, payload) {
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+async function addClass() {
   const name = classNameInput.value.trim();
   if (!name) {
     classHelper.textContent = "반 이름을 입력해주세요.";
@@ -268,11 +281,12 @@ function addClass() {
   data.classes.push(newClass);
   classNameInput.value = "";
   classHelper.textContent = "새 반이 추가되었습니다.";
+  await window.DATA_STORE.saveData(data);
   renderClassOptions();
   renderClassList();
 }
 
-function deleteClass(classId) {
+async function deleteClass(classId) {
   const target = data.classes.find((group) => group.id === classId);
   if (!target || target.students.length > 0) {
     classHelper.textContent = "학생이 있는 반은 삭제할 수 없습니다.";
@@ -280,11 +294,12 @@ function deleteClass(classId) {
   }
   data.classes = data.classes.filter((group) => group.id !== classId);
   classHelper.textContent = "반이 삭제되었습니다.";
+  await window.DATA_STORE.saveData(data);
   renderClassOptions();
   renderClassList();
 }
 
-function deleteStudent() {
+async function deleteStudent() {
   const match = findStudentById(activeStudentId);
   if (!match) {
     return;
@@ -305,7 +320,7 @@ function deleteStudent() {
     curriculumNames.innerHTML = "";
     booksContainer.innerHTML = "";
   }
-  window.DATA_STORE.saveData(data);
+  await window.DATA_STORE.saveData(data);
 }
 
 studentListNav.addEventListener("click", (event) => {
@@ -346,7 +361,7 @@ addBookButton.addEventListener("click", () => {
   booksContainer.appendChild(newRow);
 });
 
-saveButton.addEventListener("click", () => {
+saveButton.addEventListener("click", async () => {
   if (!activeStudentId) {
     return;
   }
@@ -354,27 +369,44 @@ saveButton.addEventListener("click", () => {
   if (!updated) {
     return;
   }
-  window.DATA_STORE.saveData(data);
+  await window.DATA_STORE.saveData(data);
   saveHelper.textContent = "저장되었습니다. 학생 페이지에서 새 데이터를 확인하세요.";
   renderStudentList();
   renderStudentForm(activeStudentId);
+});
+
+exportButton.addEventListener("click", async () => {
+  if (activeStudentId) {
+    const updated = updateStudentData();
+    if (!updated) {
+      return;
+    }
+  }
+  await window.DATA_STORE.saveData(data);
+  downloadJson("data.json", data);
+  saveHelper.textContent = "data.json을 다운로드했습니다. 호스팅에 업로드해 반영하세요.";
 });
 
 addStudentButton.addEventListener("click", addStudent);
 deleteStudentButton.addEventListener("click", deleteStudent);
 addClassButton.addEventListener("click", addClass);
 
-classList.addEventListener("click", (event) => {
+classList.addEventListener("click", async (event) => {
   const button = event.target.closest("button");
   if (!button) {
     return;
   }
-  deleteClass(button.dataset.id);
+  await deleteClass(button.dataset.id);
 });
 
-renderClassOptions();
-renderClassList();
-renderStudentList();
-if (getAllStudents().length) {
-  setActiveStudent(getAllStudents()[0].student.id);
+async function init() {
+  data = await window.DATA_STORE.loadData();
+  renderClassOptions();
+  renderClassList();
+  renderStudentList();
+  if (getAllStudents().length) {
+    setActiveStudent(getAllStudents()[0].student.id);
+  }
 }
+
+init();

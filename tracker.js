@@ -3,7 +3,7 @@ const studentSearch = document.querySelector("#studentSearch");
 const studentList = document.querySelector("#studentList");
 const searchHelper = document.querySelector("#searchHelper");
 
-const data = window.DATA_STORE.loadData();
+let data = { classes: [] };
 
 function normalizeName(value) {
   return value.replace(/\s+/g, "").toLowerCase();
@@ -167,4 +167,9 @@ function handleSearch() {
 studentSearch.addEventListener("input", handleSearch);
 studentSearch.addEventListener("change", handleSearch);
 
-updateDatalist();
+async function init() {
+  data = await window.DATA_STORE.loadData();
+  updateDatalist();
+}
+
+init();
