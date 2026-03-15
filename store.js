@@ -2,6 +2,7 @@
 
 const JSONBIN_BIN_ID = "69b698c2c3097a1dd5289681";
 const JSONBIN_API_KEY = "$2a$10$H7b8j9L7HHMERBMemoSY4en2PF0NQmvEnLP7ja9PKC2irTLUtfK0u";
+const JSONBIN_READONLY_KEY = "$2a$10$b0FgXA4tP4UqR/SRFZsTAOe8RRGZjSdiusPyeRAawGjJO8Ws5Y6TS";
 
 function cloneData(data) {
   return JSON.parse(JSON.stringify(data));
@@ -16,8 +17,12 @@ function getJsonBinUrl() {
 }
 
 async function fetchData() {
-  const headers = {};
-  headers["X-Master-Key"] = JSONBIN_API_KEY;
+  const headers = {
+    "X-Access-Key": JSONBIN_READONLY_KEY
+  };
+  if (isAdminPage()) {
+    headers["X-Master-Key"] = JSONBIN_API_KEY;
+  }
   const response = await fetch(getJsonBinUrl(), { headers, cache: "no-store" });
   if (!response.ok) {
     throw new Error("Failed to load data");
