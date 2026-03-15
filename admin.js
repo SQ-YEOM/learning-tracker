@@ -10,7 +10,6 @@ const curriculumNames = document.querySelector("#curriculumNames");
 const booksContainer = document.querySelector("#booksContainer");
 const addBookButton = document.querySelector("#addBookButton");
 const saveButton = document.querySelector("#saveButton");
-const exportButton = document.querySelector("#exportButton");
 const saveHelper = document.querySelector("#saveHelper");
 const addStudentButton = document.querySelector("#addStudentButton");
 const deleteStudentButton = document.querySelector("#deleteStudentButton");
@@ -251,17 +250,6 @@ function addStudent() {
   studentNameInput.focus();
 }
 
-function downloadJson(filename, payload) {
-  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = filename;
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  URL.revokeObjectURL(url);
-}
 
 async function addClass() {
   const name = classNameInput.value.trim();
@@ -369,22 +357,15 @@ saveButton.addEventListener("click", async () => {
   if (!updated) {
     return;
   }
-  await window.DATA_STORE.saveData(data);
-  saveHelper.textContent = "저장되었습니다. 학생 페이지에서 새 데이터를 확인하세요.";
+  try {
+    await window.DATA_STORE.saveData(data);
+    saveHelper.textContent = "저장되었습니다. 학생 페이지에서 새 데이터를 확인하세요.";
+  } catch (error) {
+    console.error(error);
+    saveHelper.textContent = "저장 실패: jsonbin 연결을 확인해주세요.";
+  }
   renderStudentList();
   renderStudentForm(activeStudentId);
-});
-
-exportButton.addEventListener("click", async () => {
-  if (activeStudentId) {
-    const updated = updateStudentData();
-    if (!updated) {
-      return;
-    }
-  }
-  await window.DATA_STORE.saveData(data);
-  downloadJson("data.json", data);
-  saveHelper.textContent = "data.json을 다운로드했습니다. 호스팅에 업로드해 반영하세요.";
 });
 
 addStudentButton.addEventListener("click", addStudent);

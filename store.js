@@ -25,7 +25,8 @@ async function fetchData() {
   }
   const response = await fetch(getJsonBinUrl(), { headers, cache: "no-store" });
   if (!response.ok) {
-    throw new Error("Failed to load data");
+    const text = await response.text();
+    throw new Error(`Failed to load data (${response.status}): ${text}`);
   }
   const payload = await response.json();
   return payload.record || { classes: [] };
@@ -72,7 +73,8 @@ async function saveData(data) {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to save data");
+    const text = await response.text();
+    throw new Error(`Failed to save data (${response.status}): ${text}`);
   }
 }
 
