@@ -155,8 +155,8 @@ function handleSearch() {
   }
 
   if (matches.length > 0) {
-    searchHelper.textContent = "동명이인이 있어 정확한 이름을 입력해주세요.";
-    renderEmpty("동명이인이 있습니다");
+    searchHelper.textContent = "정확한 이름을 입력해주세요.";
+    renderEmpty("정확한 이름을 입력해주세요.");
     return;
   }
 
