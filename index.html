@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>학습 트래커</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="tracker">
+  <div class="background">
+    <div class="orb orb--one"></div>
+    <div class="orb orb--two"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__badge">LT</div>
+      <div>
+        <div class="brand__title">Learning Tracker</div>
+        <div class="brand__subtitle">학생용 학습 현황</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="tracker-main">
+    <section class="search-card">
+      <div>
+        <h1>내 학습 현황 확인</h1>
+        <p class="muted">학생 이름을 입력하면 현재 교재 진도와 커리큘럼 단계가 바로 보여요.</p>
+      </div>
+      <div class="search-input">
+        <label for="studentSearch">학생 이름</label>
+        <input id="studentSearch" name="studentSearch" type="text" placeholder="예: 서연" autocomplete="off" list="studentList" />
+        <datalist id="studentList"></datalist>
+        <p class="helper" id="searchHelper">이름을 입력하면 자동으로 학생 정보를 불러옵니다.</p>
+      </div>
+    </section>
+
+    <section class="tracker-content" id="trackerContent">
+      <div class="empty-state">
+        <h2>학생 이름을 입력해주세요</h2>
+        <p class="muted">동명이인이 있는 경우 전체 이름을 입력하세요.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="store.js"></script>
+  <script src="tracker.js"></script>
+</body>
+</html>

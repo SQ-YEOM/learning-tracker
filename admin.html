@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>관리자 - 학습 트래커</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin">
+  <div class="background">
+    <div class="orb orb--three"></div>
+    <div class="orb orb--four"></div>
+  </div>
+
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="brand">
+        <div class="brand__badge">LT</div>
+        <div>
+          <div class="brand__title">Learning Tracker</div>
+          <div class="brand__subtitle">관리자 모드</div>
+        </div>
+      </div>
+
+      <button class="primary-button" id="addStudentButton">학생 추가</button>
+      <div class="nav-title">학생 목록</div>
+      <div class="student-list" id="studentListNav"></div>
+      <div class="nav-title">반 관리</div>
+      <div class="class-manager">
+        <div class="class-input">
+          <input id="classNameInput" type="text" placeholder="새 반 이름" />
+          <button class="ghost-button" id="addClassButton">반 추가</button>
+        </div>
+        <div class="class-list" id="classList"></div>
+        <p class="helper" id="classHelper">학생이 있는 반은 삭제할 수 없습니다.</p>
+      </div>
+      <a class="link-button link-button--ghost" href="index.html">학생용 페이지</a>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <div>
+          <h1 id="adminStudentName">학생 선택</h1>
+          <p class="muted" id="adminSubtitle">왼쪽에서 학생을 선택해 정보를 입력하세요.</p>
+        </div>
+        <div class="pill" id="updatedAt">업데이트: -</div>
+      </header>
+
+      <section class="admin-card">
+        <div class="field-row">
+          <div class="field">
+            <label for="studentNameInput">학생 이름</label>
+            <input id="studentNameInput" type="text" placeholder="학생 이름" />
+          </div>
+          <div class="field">
+            <label for="classSelect">반</label>
+            <select id="classSelect"></select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="teacherNotes">선생님 기록</label>
+          <textarea id="teacherNotes" maxlength="300" placeholder="학생 특징, 취약점, 진로 등 자유롭게 기록하세요. (최대 300자)"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="curriculumSelect">커리큘럼 단계</label>
+          <div class="stepper-input" id="curriculumSelect"></div>
+        </div>
+
+        <div class="field">
+          <label for="curriculumNames">커리큘럼 단계명</label>
+          <div class="curriculum-names" id="curriculumNames"></div>
+        </div>
+
+        <div class="field">
+          <label>교재별 진도</label>
+          <div class="books" id="booksContainer"></div>
+          <button class="ghost-button" id="addBookButton">교재 추가</button>
+        </div>
+
+        <div class="actions">
+          <button class="primary-button" id="saveButton">저장</button>
+          <button class="ghost-button" id="deleteStudentButton">학생 삭제</button>
+          <span class="helper" id="saveHelper">변경사항을 저장하면 학생 페이지에 바로 반영됩니다.</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="store.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
