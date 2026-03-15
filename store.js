@@ -17,9 +17,7 @@ function getJsonBinUrl() {
 
 async function fetchData() {
   const headers = {};
-  if (isAdminPage()) {
-    headers["X-Master-Key"] = JSONBIN_API_KEY;
-  }
+  headers["X-Master-Key"] = JSONBIN_API_KEY;
   const response = await fetch(getJsonBinUrl(), { headers, cache: "no-store" });
   if (!response.ok) {
     throw new Error("Failed to load data");
